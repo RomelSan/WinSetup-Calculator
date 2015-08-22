@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+  <title>Terabyte Calculator</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+   <meta name="description" content="Terabyte Calculator">
+   <meta name="author" content="@RomelSan">
+   
+   <link href="css/bootstrap.css" rel="stylesheet">
+    <style type="text/css">
+      body {
+        padding-top: 40px;
+        padding-bottom: 40px;
+      }
+
+      .form-signin {
+        max-width: 300px;
+        padding: 19px 29px 29px;
+        margin: 0 auto 20px;
+        border: 1px solid #e5e5e5;
+      }
+      .form-signin .form-signin-heading,
+      .form-signin .checkbox {
+        margin-bottom: 10px;
+      }
+      .form-signin input[type="text"],
+      .form-signin input[type="password"] {
+        font-size: 16px;
+        height: auto;
+        margin-bottom: 15px;
+        padding: 7px 9px;
+      }
+
+    </style>
+    <link href="css/bootstrap-responsive.css" rel="stylesheet">
+	
+	</head>
+	
+	<body>
+
+    <div class="container">
+
+      <form class="form-signin" action="calculate.php" method="get">
+        <h4 class="form-signin-heading">Teras to Gigas</h4>
+        <input type="text" name="value" class="input-block-level" placeholder="Terabyte" >
+        <button class="btn btn-large btn-primary" type="submit">Calculate</button>
+      </form>
+
+    </div>
+	
+	
+	<div class="container">
+
+      <form class="form-signin" action="bits.php" method="get">
+        <h4 class="form-signin-heading">Megabits to Megabytes</h4>
+        <input type="text" name="bits" class="input-block-level" placeholder="Megabits" >
+        <button class="btn btn-large btn-primary" type="submit">Calculate</button>
+      </form>
+
+    </div>
+	
+	
+	<div class="container">
+
+      <form class="form-signin" action="bits.php" method="get">
+        <h4 class="form-signin-heading">Megabytes to Megabits</h4>
+        <input type="text" name="bytes" class="input-block-level" placeholder="Megabytes" >
+        <button class="btn btn-large btn-primary" type="submit">Calculate</button>
+      </form>
+
+    </div>
+
+    <!-- javascript
+    ================================================== -->
+    <!-- Placed at the end of the document so the pages load faster -->
+    <script src="js/jquery.js"></script>
+    <script src="js/bootstrap.js"></script>
+
+  </body>
+</html>
