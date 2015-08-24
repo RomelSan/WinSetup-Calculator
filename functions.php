@@ -37,32 +37,25 @@
 		if (($teras >= 0) && ($teras < 1025)) 
 		{
 		 	$Windows = 9; //Windows Installed on HDD
-			$Windows_Wim = 4.7; //Windows WIM
 			$Office = 3; //Office Installed
 			$Framework = 0.03; // .Net Framework 3.5
-			$Updates_Reservation = 2; // Windows Updates Reservation 
+			$Updates_Reservation = 5; // Windows Updates Reservation 
 			$WindowsTotal = $Windows + $Office + $Framework + $Updates_Reservation; // Windows Total All.
 			
-			$RecoveryImage = ($WindowsTotal - $Windows + $Windows_Wim) - $Updates_Reservation; // Recovery Image Os
 			$RecoveryTool = 0.3;// Recovery Tools 300mb
 			$EfiPartition = 0.26;// 260mb Microsoft Recommended for 4k drives
 			$MSRPartition = 0.128; // MSR Partition
-			$TotalPartitions = $RecoveryImage + $RecoveryTool + $EfiPartition + $MSRPartition; // Total Partitions
+			$TotalPartitions = $RecoveryTool + $EfiPartition + $MSRPartition; // Total Partitions
 			
 			$TotalSetup = $WindowsTotal + $TotalPartitions; // Total Windows Setup Plus Partitions Creation
 			$Total = $TotalSetup + $GLOBALS['loss']; // Total Setup Space Consumption plus Base 10 miscalculation.
 			$free = $GLOBALS['base10'] - $TotalSetup; // Free Space for Base 10 Disks
-			$freeHDDnoRecovery = $free + $RecoveryImage; // Free Space for HDD without Recovery Image
 			$freeSSD = $GLOBALS['base2'] - $TotalSetup; // Free Space for SSD Disks
-			$freeSSDnoRecovery = $freeSSD + $RecoveryImage; // Free Space for SSD without Recovery Image
-			
-			$WIMBOOT = $Windows_Wim + $Framework; // Wimboot Partition Reservation for basic Windows Image
-			$WIMBOOT_Free = $GLOBALS['base2'] - $WIMBOOT - $Office - ($TotalPartitions - $RecoveryImage) - $Updates_Reservation; // Space Free for user
 			
 			echo '<br>';
-			echo 'Windows Setup = ' . $Windows . ' GB';
+			echo 'Windows 10 Setup = ' . $Windows . ' GB';
 			echo '<br>';
-			echo 'Office Setup = ' . $Office . ' GB';
+			echo 'Office 2013 Setup = ' . $Office . ' GB';
 			echo '<br>';
 			echo '.Net Framework 3.5 = ' . $Framework . ' GB';
 			echo '<br>';
@@ -72,11 +65,6 @@
 			echo '<br>';
 			echo '<br>';
 			
-			echo 'Windows WIM File = ' . $Windows_Wim . ' GB';
-			echo '<br>';
-			echo '<br>';
-			echo 'Recovery Image = ' . $RecoveryImage . ' GB';
-			echo '<br>';
 			echo 'Recovery Tool = ' . $RecoveryTool . ' GB';
 			echo '<br>';
 			echo 'Efi Partition = ' . $EfiPartition . ' GB';
@@ -93,17 +81,7 @@
 			echo '<br>';
 			echo 'Free Space for HDD After Complete Setup = ' . number_format($free, 2, '.', ',') . ' GB';
 			echo '<br>';
-			echo 'Free Space for HDD After Complete Setup Without Recovery Image = ' . number_format($freeHDDnoRecovery, 2, '.', ',') . ' GB';
-			echo '<br>';
 			echo 'Free Space for SSD After Complete Setup = ' . number_format($freeSSD, 2, '.', ',') . ' GB';
-			echo '<br>';
-			echo 'Free Space for SSD After Complete Setup Without Recovery Image = ' . number_format($freeSSDnoRecovery, 2, '.', ',') . ' GB';
-									
-			echo '<br><br>';
-			echo 'Windows WIMBOOT Space Reservation = ' . $WIMBOOT . ' GB';
-			echo '<br>';
-			echo 'Windows WIMBOOT User Free Space = ' . $WIMBOOT_Free . ' GB';
-			echo '<br>';
 		}
 		else 
 		{
